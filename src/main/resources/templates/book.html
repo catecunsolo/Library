@@ -104,6 +104,9 @@
                 </td>
                 <td class="col-md-3 px-md-2 d-flex justify-content-around w-100">
                     <a class="btn btn-secondary btn-sm" th:href="@{/book/edit/__${book.id}__}">Edit</a>
+<!--                    <form method="post" th:action="@{/book/deActivate/__${book.id}__}">
+                        <button class="btn btn-warning btn-sm" type="submit">De/Activate</button>
+                    </form>-->
                     <form method="post" th:action="@{/book/delete/__${book.id}__}">
                         <button class="btn btn-danger btn-sm" type="submit">Delete</button>
                     </form>

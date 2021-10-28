@@ -62,4 +62,13 @@ public class BookService {
         bookRepository.save(book);
     }
 
+    @Transactional
+    public void deActivate(Integer id) {
+        if(bookRepository.findById(id).get().getAvailable()==true){
+            bookRepository.deActivate(id,false);
+        } else{
+            bookRepository.deActivate(id,true);
+        }
+    }
+
 }

@@ -54,8 +54,8 @@ public ModelAndView getBooks(){
 public ModelAndView editBook(@PathVariable Integer id){
     ModelAndView modelAndView = new ModelAndView("book-form");
     modelAndView.addObject("book",bookService.findBook(id));
-    modelAndView.addObject("authors",authorService.findAll());
-    modelAndView.addObject("editorials",editorialService.findAll());
+    modelAndView.addObject("authors",authorService.findAvailable());
+    modelAndView.addObject("editorials",editorialService.findAvailable());
     modelAndView.addObject("title","Edit Book");
     modelAndView.addObject("action","edit");
     return modelAndView;
@@ -64,6 +64,12 @@ public ModelAndView editBook(@PathVariable Integer id){
     @PostMapping("/delete/{id}")
     public RedirectView delete(@PathVariable Integer id){
         bookService.delete(id);
+        return new RedirectView("/book/get-all");
+    }
+
+    @PostMapping("/deActivate/{id}")
+    public RedirectView deActivate(@PathVariable Integer id){
+        bookService.deActivate(id);
         return new RedirectView("/book/get-all");
     }
 

@@ -68,4 +68,10 @@ authorService.delete(id);
         return new RedirectView("/author/get-all");
     }
 
+    @PostMapping("/deActivate/{id}")
+    public RedirectView deActivate(@PathVariable Integer id){
+        authorService.deActivate(id);
+        return new RedirectView("/author/get-all");
+    }
+
 }

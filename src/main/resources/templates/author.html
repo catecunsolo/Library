@@ -99,6 +99,9 @@
                 <td class="col-md-3 px-md-2" th:text="${author.available}"></td>
                 <td class="col-md-3 px-md-2 d-flex justify-content-around w-100">
                     <a class="btn btn-secondary btn-sm" th:href="@{/author/edit/__${author.id}__}">Edit</a>
+                    <form method="post" th:action="@{/author/deActivate/__${author.id}__}">
+                        <button class="btn btn-warning btn-sm" type="submit">De/Activate</button>
+                    </form>
                     <form method="post" th:action="@{/author/delete/__${author.id}__}">
                         <button class="btn btn-danger btn-sm" type="submit">Delete</button>
                     </form>

@@ -57,4 +57,10 @@ public class EditorialController {
         return new RedirectView("/editorial/get-all");
     }
 
+    @PostMapping("/deActivate/{id}")
+    public RedirectView deActivate(@PathVariable Integer id){
+        editorialService.deActivate(id);
+        return new RedirectView("/editorial/get-all");
+    }
+
 }

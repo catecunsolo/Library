@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,6 +61,26 @@ public void edit(Integer id, String name){
     @Transactional
     public void delete(Integer id){
         authorRepository.deleteById(id);
+    }
+
+    @Transactional
+    public void deActivate(Integer id) {
+        if(authorRepository.findById(id).get().getAvailable()==true){
+            authorRepository.deActivate(id,false);
+        } else{
+            authorRepository.deActivate(id,true);
+        }
+    }
+
+    @Transactional
+    public List<Author> findAvailable(){
+      /*  List<Author> availables = new ArrayList<>();
+        for(Author author : authorRepository.findAll()){
+            if(author.getAvailable()==true){
+                availables.add(author);
+            }
+        } return availables;*/
+ return authorRepository.findByAvailableTrue(); /*check*/
     }
 
 }

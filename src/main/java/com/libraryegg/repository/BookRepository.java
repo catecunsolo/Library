@@ -15,5 +15,9 @@ public interface BookRepository extends JpaRepository<Book,Integer> {
     @Modifying
     @Query("UPDATE Book b SET b.title = :title WHERE b.isbn = :isbn")
     void edit(@Param("isbn") Long isbn, @Param("title") String title, @Param("author"));*/
+@Modifying
+@Query("UPDATE Book b SET b.available = :available WHERE b.id = :id")
+void deActivate(@Param("id") Integer id, @Param("available") Boolean available);
+
 
 }
