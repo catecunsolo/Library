@@ -15,65 +15,8 @@
     />
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-    <div class="container">
-        <a class="navbar-brand logo" th:href="@{/}">L!braryGate</a>
-        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-                class="navbar-toggler"
-                data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-md-0 w-100 d-flex justify-content-around">
-                <!-- ACA EMPIEZA EL NUEVO 'ITEM BOOK'-->
-                <!--DROPDOWN BOOKS-->
-                <li class="nav-item dropdown">
-                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-                       id="dropdown-book" role="button">
-                        BOOKS
-                    </a>
-                    <ul aria-labelledby="dropdown-book" class="dropdown-menu dropdown-menu-dark">
-                        <li>
-                            <a class="dropdown-item" th:href="@{/book/get-all}">GET ALL</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" th:href="@{/book/add}">ADD</a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- FIN DEL NUEVO ITEM 'BOOK'-->
-                <!--DROPDOWN AUTHORS-->
-                <li class="nav-item dropdown">
-                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-                       id="dropdown-author" role="button">
-                        AUTHORS
-                    </a>
-                    <ul aria-labelledby="dropdown-author" class="dropdown-menu dropdown-menu-dark">
-                        <li>
-                            <a class="dropdown-item" th:href="@{/author/get-all}">GET ALL</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" th:href="@{/author/add}">ADD</a>
-                        </li>
-                    </ul>
-                </li>
-                <!--DROPDOWN EDITORIALS-->
-                <li class="nav-item dropdown">
-                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-                       id="dropdown-editorial" role="button">
-                        EDITORIALS
-                    </a>
-                    <ul aria-labelledby="dropdown-editorial" class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" th:href="@{/editorial/get-all}">GET ALL</a></li>
-                        <li>
-                            <a class="dropdown-item" th:href="@{/editorial/add}">ADD</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+
+<nav th:replace="fragment :: navbar"></nav>
 
 <div class="container mt-5 main">
     <h1>BOOKS LIST</h1>
@@ -117,11 +60,7 @@
     </div>
 </div>
 
-<footer class="footer py-3 bg-dark fixed-bottom">
-    <div class="container d-flex justify-content-center">
-        <span class="text-muted">&copy; Caterina Cunsolo - 2021</span>
-    </div>
-</footer>
+<footer th:replace="fragment :: footer"></footer>
 
 <!-- JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
